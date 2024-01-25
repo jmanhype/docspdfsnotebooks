@@ -1,0 +1,29 @@
+{
+    "Repository": [
+        {
+            "Source": "screenshot.js",
+            "Element": "Screenshots",
+            "Locator": "Full page",
+            "Usage": "Capturing screenshots of web pages for analysis or record-keeping"
+        },
+        {
+            "Source": "server.js",
+            "Element": "Server Responses",
+            "Locator": "API endpoints",
+            "Usage": "Handling server responses for web agent processes"
+        },
+        {
+            "Source": "vision_scraper.py",
+            "Element": "Visual Data",
+            "Locator": "Image/Video content",
+            "Usage": "Processing and interpreting visual content on web pages"
+        },
+        {
+            "Source": "web_agent.js",
+            "Element": "Interactive Web Elements",
+            "Locator": "CSS selectors, XPaths",
+            "Usage": "Automating interactions with web pages, such as clicking links, filling forms"
+        }
+    ],
+    "Update Mechanism": "Method for updating repository"
+}

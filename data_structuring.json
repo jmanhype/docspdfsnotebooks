@@ -1,0 +1,21 @@
+{
+    "description": "Categorization of data and actions performed by the web agent",
+    "data_types": [
+        {
+            "type": "Web Scraping",
+            "details": "Methods and approaches for extracting data from web pages"
+        },
+        {
+            "type": "Image Processing",
+            "details": "Techniques to analyze and extract information from images"
+        },
+        {
+            "type": "Web Element Interaction",
+            "details": "Strategies for interacting with various web elements"
+        }
+    ],
+    "storage_formats": [
+        "JSON for structured data storage",
+        "SQL databases for complex data management"
+    ]
+}

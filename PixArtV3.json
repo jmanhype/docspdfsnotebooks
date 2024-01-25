@@ -1,0 +1,501 @@
+{
+  "last_node_id": 156,
+  "last_link_id": 292,
+  "nodes": [
+    {
+      "id": 65,
+      "type": "VAEDecode",
+      "pos": [
+        940,
+        30
+      ],
+      "size": {
+        "0": 200,
+        "1": 50
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 292
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 89
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            87
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 66,
+      "type": "SaveImage",
+      "pos": [
+        940,
+        120
+      ],
+      "size": {
+        "0": 500,
+        "1": 460
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 87
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI_PixArt"
+      ]
+    },
+    {
+      "id": 128,
+      "type": "PixArtResolutionSelect",
+      "pos": [
+        0,
+        150
+      ],
+      "size": {
+        "0": 220,
+        "1": 102
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            236
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            237
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PixArtResolutionSelect"
+      },
+      "widgets_values": [
+        "PixArtMS_XL_2",
+        "1.21"
+      ]
+    },
+    {
+      "id": 20,
+      "type": "PixArtCheckpointLoader",
+      "pos": [
+        0,
+        30
+      ],
+      "size": {
+        "0": 400,
+        "1": 82
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            288
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PixArtCheckpointLoader"
+      },
+      "widgets_values": [
+        "ex\\PixArt-XL-2-1024x1024-fp16.safetensors",
+        "PixArtMS_XL_2"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "EmptyLatentImage",
+      "pos": [
+        260,
+        150
+      ],
+      "size": {
+        "0": 280,
+        "1": 100
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 236,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 237,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            289
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 113,
+      "type": "T5TextEncode",
+      "pos": [
+        260,
+        290
+      ],
+      "size": {
+        "0": 280,
+        "1": 120
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "T5",
+          "type": "T5",
+          "link": 263
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            290
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "T5TextEncode"
+      },
+      "widgets_values": [
+        "pixelart drawing of a tank with a (blue:0.8) camo pattern"
+      ]
+    },
+    {
+      "id": 125,
+      "type": "T5TextEncode",
+      "pos": [
+        260,
+        450
+      ],
+      "size": {
+        "0": 280,
+        "1": 80
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "T5",
+          "type": "T5",
+          "link": 264
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            291
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "T5TextEncode"
+      },
+      "widgets_values": [
+        "photo, depth of field"
+      ]
+    },
+    {
+      "id": 155,
+      "type": "KSampler",
+      "pos": [
+        600,
+        30
+      ],
+      "size": {
+        "0": 300,
+        "1": 480
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 288
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 290
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 291
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 289
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            292
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        160,
+        "fixed",
+        20,
+        5.5,
+        "euler",
+        "normal",
+        1
+      ]
+    },
+    {
+      "id": 3,
+      "type": "VAELoader",
+      "pos": [
+        600,
+        550
+      ],
+      "size": {
+        "0": 300,
+        "1": 60
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            89
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "ft-mse-840000.ckpt"
+      ]
+    },
+    {
+      "id": 144,
+      "type": "T5v11Loader",
+      "pos": [
+        -160,
+        290
+      ],
+      "size": {
+        "0": 380,
+        "1": 154
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "T5",
+          "type": "T5",
+          "links": [
+            263,
+            264
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "T5v11Loader"
+      },
+      "widgets_values": [
+        "T5v1.1\\pytorch_model-00001-of-00002.bin",
+        "xxl",
+        "folder",
+        "cpu",
+        "default"
+      ]
+    }
+  ],
+  "links": [
+    [
+      87,
+      65,
+      0,
+      66,
+      0,
+      "IMAGE"
+    ],
+    [
+      89,
+      3,
+      0,
+      65,
+      1,
+      "VAE"
+    ],
+    [
+      236,
+      128,
+      0,
+      6,
+      0,
+      "INT"
+    ],
+    [
+      237,
+      128,
+      1,
+      6,
+      1,
+      "INT"
+    ],
+    [
+      263,
+      144,
+      0,
+      113,
+      0,
+      "T5"
+    ],
+    [
+      264,
+      144,
+      0,
+      125,
+      0,
+      "T5"
+    ],
+    [
+      288,
+      20,
+      0,
+      155,
+      0,
+      "MODEL"
+    ],
+    [
+      289,
+      6,
+      0,
+      155,
+      3,
+      "LATENT"
+    ],
+    [
+      290,
+      113,
+      0,
+      155,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      291,
+      125,
+      0,
+      155,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      292,
+      155,
+      0,
+      65,
+      0,
+      "LATENT"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}

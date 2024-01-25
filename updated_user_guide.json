@@ -1,0 +1,33 @@
+{
+    "server.js": {
+        "Description": "Manages web agent processes and communications.",
+        "Functions": [
+            "Start the web agent using '/start-web-agent' endpoint.",
+            "Send commands to web agent via '/command-web-agent' endpoint.",
+            "Update web agent's state using '/update-state' endpoint.",
+            "Poll the current state of web agent using '/poll' endpoint."
+        ]
+    },
+    "web_agent.js": {
+        "Description": "Handles web navigation, interaction, and decision-making.",
+        "Functions": [
+            "Navigate web pages, click links, fill forms.",
+            "Interact with various web elements.",
+            "Make decisions based on OpenAI GPT-4 integration."
+        ]
+    },
+    "screenshot.js": {
+        "Description": "Captures screenshots of web pages.",
+        "Functions": [
+            "Automate browser to visit web pages.",
+            "Take and save screenshots of the current web page."
+        ]
+    },
+    "vision_scraper.py": {
+        "Description": "Processes visual content on web pages.",
+        "Functions": [
+            "Analyze images or screenshots from web pages.",
+            "Extract and process data from visual content."
+        ]
+    }
+}

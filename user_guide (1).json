@@ -1,0 +1,34 @@
+{
+    "description": "Comprehensive guide on how to interact with the web agent",
+    "usage_instructions": [
+        {
+            "command_type": "Start Agent",
+            "details": "Use '/start-web-agent' endpoint to initiate the web agent. This starts the process and prepares the agent for web interactions."
+        },
+        {
+            "command_type": "Send Command",
+            "details": "Commands can be sent to the web agent using the '/command-web-agent' endpoint. This includes navigation, data scraping, and other web actions."
+        },
+        {
+            "command_type": "Update Agent State",
+            "details": "The agent's state can be updated using the '/update-state' endpoint. This is used for maintaining the current status of the web agent."
+        },
+        {
+            "command_type": "Poll Agent State",
+            "details": "Retrieve the current state of the web agent using the '/poll' endpoint, providing information about the latest actions and the current page."
+        },
+        {
+            "command_type": "Take Screenshot",
+            "details": "Invoke 'screenshot.js' to capture and save a screenshot of the current web page viewed by the agent."
+        },
+        {
+            "command_type": "Image Processing",
+            "details": "Use 'vision_scraper.py' to process images, such as screenshots taken by the web agent, for data extraction and analysis."
+        },
+        {
+            "command_type": "Web Interaction",
+            "details": "Leverage 'web_agent.js' for automated interactions with web pages, including clicking links, filling forms, and navigating."
+        }
+    ],
+    "troubleshooting": "Steps to diagnose and resolve common issues encountered during operation"
+}

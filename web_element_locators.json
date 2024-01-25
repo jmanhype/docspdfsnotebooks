@@ -1,0 +1,22 @@
+{
+    "description": "Comprehensive repository of selectors for web elements",
+    "selectors": [
+        {
+            "type": "ID",
+            "usage": "Unique identification of elements"
+        },
+        {
+            "type": "Class",
+            "usage": "Identification of a group of similar elements"
+        },
+        {
+            "type": "XPath",
+            "usage": "Complex selection based on the XML path in the DOM structure"
+        },
+        {
+            "type": "CSS Selectors",
+            "usage": "Stylistic and structural element identification"
+        }
+    ],
+    "update_cycle": "Regular updates based on new web design trends and technologies"
+}

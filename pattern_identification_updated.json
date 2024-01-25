@@ -1,0 +1,24 @@
+{
+    "Web Interactions": {
+        "Common Navigation Paths": [
+            "Navigating to URLs",
+            "Clicking links",
+            "Filling forms"
+        ],
+        "User Interactions": [
+            "Responding to user inputs",
+            "Processing commands",
+            "Interacting with web elements"
+        ]
+    },
+    "Visual Data": {
+        "Image Patterns": [
+            "Identifying key elements in screenshots",
+            "Extracting data from images"
+        ],
+        "Screenshot Analysis": [
+            "Automated screenshot capture for analysis",
+            "Image processing for information extraction"
+        ]
+    }
+}

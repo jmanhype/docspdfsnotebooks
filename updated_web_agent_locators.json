@@ -1,0 +1,37 @@
+{
+    "Repository": [
+        {
+            "Type": "CSS Selector",
+            "Description": "Used to select elements based on their style attributes."
+        },
+        {
+            "Type": "XPath",
+            "Description": "Used for navigating through elements and attributes in an XML document."
+        },
+        {
+            "Type": "Class Name",
+            "Description": "Used to select elements with a specific class attribute."
+        },
+        {
+            "Type": "ID",
+            "Description": "Used to select a single element with a specific id attribute."
+        },
+        {
+            "Type": "Tag Name",
+            "Description": "Used to select elements by their tag name."
+        },
+        {
+            "Type": "Link Text",
+            "Description": "Used to select link elements based on their text content."
+        },
+        {
+            "Type": "Partial Link Text",
+            "Description": "Used to select link elements that contain specific text."
+        },
+        {
+            "Type": "Name Attribute",
+            "Description": "Used to select elements with a specific name attribute."
+        }
+    ],
+    "Update Mechanism": "Method for updating repository"
+}

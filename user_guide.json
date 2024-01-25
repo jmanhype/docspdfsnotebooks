@@ -1,0 +1,14 @@
+{
+    "description": "Comprehensive guide on how to interact with the web agent",
+    "usage_instructions": [
+        {
+            "command_type": "Start Agent",
+            "details": "Instructions to initiate the web agent"
+        },
+        {
+            "command_type": "Send Command",
+            "details": "Guidelines on sending various commands for web actions"
+        }
+    ],
+    "troubleshooting": "Steps to diagnose and resolve common issues encountered during operation"
+}

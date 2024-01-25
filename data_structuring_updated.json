@@ -1,0 +1,29 @@
+{
+    "Format": "JSON files for different types of data",
+    "Content": {
+        "URLs Accessed": [
+            "List of URLs accessed by web_agent.js"
+        ],
+        "Web Elements Interacted": [
+            "CSS selectors, IDs, XPaths used in web_agent.js"
+        ],
+        "Common Actions": [
+            "Actions performed by web_agent.js, such as clicking, form submissions"
+        ],
+        "Screenshots Captured": [
+            "Details of screenshots captured by screenshot.js"
+        ],
+        "Image Analysis": [
+            "Patterns and data extracted from images by vision_scraper.py"
+        ],
+        "Server Responses": [
+            "Responses sent by server.js, including status codes and messages"
+        ],
+        "Web Agent Decision Making": [
+            "Decision-making processes in web_agent.js, influenced by GPT-4"
+        ],
+        "Error Logs": [
+            "Errors logged by server.js and web_agent.js"
+        ]
+    }
+}
