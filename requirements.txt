@@ -1,0 +1,16 @@
+discord.py==1.7.3
+aiohttp==3.7.4
+asyncpg==0.21.0
+aiocache==0.11.1
+beautifulsoup4==4.9.3
+lxml==4.6.3
+requests==2.25.1
+pandas==1.2.4
+numpy>=1.21.0
+scikit-learn==0.24.2
+gensim==4.0.1
+transformers==4.5.1
+fastapi==0.65.2
+uvicorn==0.13.4
+sqlalchemy==1.4.15
+psycopg2-binary==2.8.6

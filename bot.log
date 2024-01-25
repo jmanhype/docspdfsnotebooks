@@ -1,0 +1,75 @@
+2023-11-23 00:47:24,995 - interactions - DEBUG - Running client sanity checks...
+2023-11-23 00:47:24,996 - httpx - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2023-11-23 00:47:24,997 - httpx - DEBUG - load_verify_locations cafile='C:\\Users\\strau\\Downloads\\datadisco\\botenv\\lib\\site-packages\\certifi\\cacert.pem'
+2023-11-23 00:47:25,006 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2023-11-23 00:47:25,504 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device: cpu
+2023-11-23 00:47:25,506 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2023-11-23 00:47:25,721 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2023-11-23 00:47:25,822 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-11-23 00:47:25,879 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-11-23 00:47:26,723 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/TheBloke/Mistral-7B-v0.1-GGUF/revision/main HTTP/1.1" 200 1978
+2023-11-23 00:47:26,786 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/TheBloke/Mistral-7B-v0.1-GGUF/revision/main HTTP/1.1" 200 1978
+2023-11-23 00:47:28,440 - asyncio - DEBUG - Using selector: SelectSelector
+2023-11-23 00:47:28,441 - interactions - DEBUG - Added callback: ask_question
+2023-11-23 00:47:28,441 - interactions - DEBUG - Added callback: fetch_history
+2023-11-23 00:47:28,441 - interactions - DEBUG - 2 callbacks have been loaded from __main__.
+2023-11-23 00:47:28,442 - interactions - DEBUG - Added callback: _disconnect
+2023-11-23 00:47:28,442 - interactions - DEBUG - Added callback: _on_websocket_ready
+2023-11-23 00:47:28,442 - interactions - DEBUG - Added callback: on_autocomplete_completion
+2023-11-23 00:47:28,442 - interactions - DEBUG - Added callback: on_autocomplete_error
+2023-11-23 00:47:28,442 - interactions - DEBUG - Added callback: on_command_completion
+2023-11-23 00:47:28,442 - interactions - DEBUG - Added callback: on_command_error
+2023-11-23 00:47:28,442 - interactions - DEBUG - Added callback: on_component_completion
+2023-11-23 00:47:28,442 - interactions - DEBUG - Added callback: on_component_error
+2023-11-23 00:47:28,442 - interactions - DEBUG - Added callback: on_error
+2023-11-23 00:47:28,442 - interactions - DEBUG - Added callback: on_modal_completion
+2023-11-23 00:47:28,442 - interactions - DEBUG - Added callback: on_modal_error
+2023-11-23 00:47:28,442 - interactions - DEBUG - Added callback: on_resume
+2023-11-23 00:47:28,442 - interactions - DEBUG - 12 callbacks have been loaded from Client.
+2023-11-23 00:47:28,443 - interactions - DEBUG - Attempting to login
+2023-11-23 00:47:28,653 - interactions - DEBUG - Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+2023-11-23 00:47:28,653 - interactions - DEBUG - GET /users/@me Received 200 :: [49/50 calls remaining]
+2023-11-23 00:47:28,777 - interactions - DEBUG - Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+2023-11-23 00:47:28,777 - interactions - DEBUG - GET /oauth2/applications/@me Received 200 :: [49/50 calls remaining]
+2023-11-23 00:47:28,804 - interactions - DEBUG - Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+2023-11-23 00:47:28,804 - interactions - DEBUG - GET /gateway Received 200 :: [49/50 calls remaining]
+2023-11-23 00:47:28,804 - interactions - INFO - Shard ID 0 | Starting Shard
+2023-11-23 00:47:28,804 - interactions - INFO - Shard ID 0 | Shard is attempting to connect to gateway...
+2023-11-23 00:47:28,939 - interactions - DEBUG - Shard ID 0 | Identification payload sent to gateway, requesting intents: 3243773
+2023-11-23 00:47:29,083 - interactions - INFO - Shard ID 0 | Gateway connection established
+2023-11-23 00:47:29,083 - interactions - DEBUG - Shard ID 0 | Session ID: a97d028db1d8ebeacf06f4a97fd51121 Trace: ['["gateway-prd-us-east1-c-23hh",{"micros":96227,"calls":["id_created",{"micros":784,"calls":[]},"session_lookup_time",{"micros":312,"calls":[]},"session_lookup_finished",{"micros":13,"calls":[]},"discord-sessions-prd-2-245",{"micros":94589,"calls":["start_session",{"micros":48252,"calls":["discord-api-5b464978d4-pthnv",{"micros":42304,"calls":["get_user",{"micros":6878},"get_guilds",{"micros":3516},"send_scheduled_deletion_message",{"micros":10},"guild_join_requests",{"micros":715},"authorized_ip_coro",{"micros":10}]}]},"starting_guild_connect",{"micros":66,"calls":[]},"presence_started",{"micros":278,"calls":[]},"guilds_started",{"micros":155,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":45808,"calls":[]},"connect_finished",{"micros":45815,"calls":[]},"build_ready",{"micros":19,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":0,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}]']
+2023-11-23 00:47:29,083 - interactions - DEBUG - Dispatching Event: websocket_ready
+2023-11-23 00:47:29,198 - interactions - DEBUG - Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+2023-11-23 00:47:29,198 - interactions - DEBUG - GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+2023-11-23 00:47:29,284 - interactions - DEBUG - Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+2023-11-23 00:47:29,284 - interactions - DEBUG - GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+2023-11-23 00:47:29,284 - interactions - DEBUG - 0 is already up-to-date with 2 commands.
+2023-11-23 00:47:29,284 - interactions - DEBUG - Sync of 1 scopes took 0.1927601001225412 seconds
+2023-11-23 00:47:37,632 - interactions - DEBUG - 1176932594215026688::fetch_history should be called
+2023-11-23 00:47:37,853 - interactions - DEBUG - Caching ingested rate limit data for: 34149db5ac4be6f2a8b66c6192bc3bfc
+2023-11-23 00:47:37,853 - interactions - DEBUG - GET /channels/1114805309643427850/messages Received 200 :: [4/5 calls remaining]
+2023-11-23 00:47:38,268 - interactions - DEBUG - Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+2023-11-23 00:47:38,268 - interactions - DEBUG - POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE3NzEzODM3MDM1MTIyMjg0NTppbFcwTHFMU1QweGZMT0k4aDUzdmowUE9ZYXFzTWJ3aFdFN2Fuc3hzVlBORUo3VmRDbUZTVEl3Rkw0aDR4bUdFOThiaG1uNU1EYVd0ZDlPQmIzT3pwYWRNcVlmVHlqaHZtSTBuVEM1RXplRWRzZ3RmeE5RYm1lYU04N013SXE3bA/callback Received 204 :: [4/5 calls remaining]
+2023-11-23 00:47:38,370 - interactions - DEBUG - Caching ingested rate limit data for: 3d2712a9e4fe17cc9d3fed4a8e672e5f
+2023-11-23 00:47:38,371 - interactions - DEBUG - GET /webhooks/{application_id}/aW50ZXJhY3Rpb246MTE3NzEzODM3MDM1MTIyMjg0NTppbFcwTHFMU1QweGZMT0k4aDUzdmowUE9ZYXFzTWJ3aFdFN2Fuc3hzVlBORUo3VmRDbUZTVEl3Rkw0aDR4bUdFOThiaG1uNU1EYVd0ZDlPQmIzT3pwYWRNcVlmVHlqaHZtSTBuVEM1RXplRWRzZ3RmeE5RYm1lYU04N013SXE3bA/messages/{message_id} Received 200 :: [4/5 calls remaining]
+2023-11-23 00:47:38,371 - interactions - DEBUG - Dispatching Event: command_completion
+2023-11-23 00:47:38,371 - interactions - INFO - Command Called: fetch_history with event.ctx.args = ['1114805309643427850'] | event.ctx.kwargs = {'channel_id': '1114805309643427850'}
+2023-11-23 00:47:43,105 - interactions - DEBUG - Sending heartbeat every 41.25 seconds
+2023-11-23 00:47:43,105 - interactions - DEBUG - Sending data to websocket: {"op": 1, "d": 5}
+2023-11-23 00:47:43,105 - interactions - DEBUG - Shard ID 0 | \u2764 Gateway is sending a Heartbeat
+2023-11-23 00:47:43,149 - interactions - DEBUG - Shard ID 0 | \u2764 Received heartbeat acknowledgement from gateway
+2023-11-23 00:48:02,743 - interactions - DEBUG - 1176932594215026688::fetch_history should be called
+2023-11-23 00:48:03,009 - interactions - DEBUG - Caching ingested rate limit data for: 34149db5ac4be6f2a8b66c6192bc3bfc
+2023-11-23 00:48:03,009 - interactions - DEBUG - GET /channels/974711420904161385/messages Received 200 :: [4/5 calls remaining]
+2023-11-23 00:48:03,243 - interactions - DEBUG - Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+2023-11-23 00:48:03,243 - interactions - DEBUG - POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE3NzEzODQ3NTgwMDIxMTUwNjo0ZU5TMWpja3E2UHVCdWdTMkRVbHQ2UDlkZmZOdHQyZFZKYnR5Z3dLS0JQRVZkNjNrUnNyRENoSHF1dk1JOFYwTzU1aG5aRFB0TDdPUlc1SXZSUGtLY29zTTdiR2RnZXRIdkVVbWFYS1EzWHpQbXNnaWFnNXQ1aWhuSGtlaHk3Vw/callback Received 204 :: [4/5 calls remaining]
+2023-11-23 00:48:03,352 - interactions - DEBUG - Caching ingested rate limit data for: 3d2712a9e4fe17cc9d3fed4a8e672e5f
+2023-11-23 00:48:03,352 - interactions - DEBUG - GET /webhooks/{application_id}/aW50ZXJhY3Rpb246MTE3NzEzODQ3NTgwMDIxMTUwNjo0ZU5TMWpja3E2UHVCdWdTMkRVbHQ2UDlkZmZOdHQyZFZKYnR5Z3dLS0JQRVZkNjNrUnNyRENoSHF1dk1JOFYwTzU1aG5aRFB0TDdPUlc1SXZSUGtLY29zTTdiR2RnZXRIdkVVbWFYS1EzWHpQbXNnaWFnNXQ1aWhuSGtlaHk3Vw/messages/{message_id} Received 200 :: [4/5 calls remaining]
+2023-11-23 00:48:03,352 - interactions - DEBUG - Dispatching Event: command_completion
+2023-11-23 00:48:03,352 - interactions - INFO - Command Called: fetch_history with event.ctx.args = ['974711420904161385'] | event.ctx.kwargs = {'channel_id': '974711420904161385'}
+2023-11-23 00:48:24,367 - interactions - DEBUG - Sending data to websocket: {"op": 1, "d": 11}
+2023-11-23 00:48:24,367 - interactions - DEBUG - Shard ID 0 | \u2764 Gateway is sending a Heartbeat
+2023-11-23 00:48:24,416 - interactions - DEBUG - Shard ID 0 | \u2764 Received heartbeat acknowledgement from gateway
+2023-11-23 00:49:05,623 - interactions - DEBUG - Sending data to websocket: {"op": 1, "d": 12}
+2023-11-23 00:49:05,624 - interactions - DEBUG - Shard ID 0 | \u2764 Gateway is sending a Heartbeat
+2023-11-23 00:49:05,666 - interactions - DEBUG - Shard ID 0 | \u2764 Received heartbeat acknowledgement from gateway
