@@ -1,0 +1,25 @@
+import torch
+from diffusers import PixArtAlphaPipeline, ConsistencyDecoderVAE, AutoencoderKL
+
+# You can replace the checkpoint id with "PixArt-alpha/PixArt-XL-2-512x512" too.
+pipe = PixArtAlphaPipeline.from_pretrained("PixArt-alpha/PixArt-XL-2-1024-MS", torch_dtype=torch.float16, use_safetensors=True)
+
+# If use DALL-E 3 Consistency Decoder
+# pipe.vae = ConsistencyDecoderVAE.from_pretrained("openai/consistency-decoder", torch_dtype=torch.float16)
+
+# If use SA-Solver sampler
+# from diffusion.sa_solver_diffusers import SASolverScheduler
+# pipe.scheduler = SASolverScheduler.from_config(pipe.scheduler.config, algorithm_type='data_prediction')
+
+# If loading a LoRA model
+# transformer = Transformer2DModel.from_pretrained("PixArt-alpha/PixArt-LCM-XL-2-1024-MS", subfolder="transformer", torch_dtype=torch.float16)
+# transformer = PeftModel.from_pretrained(transformer, "Your-LoRA-Model-Path")
+# pipe = PixArtAlphaPipeline.from_pretrained("PixArt-alpha/PixArt-LCM-XL-2-1024-MS", transformer=transformer, torch_dtype=torch.float16, use_safetensors=True)
+# del transformer
+
+# Enable memory optimizations.
+pipe.enable_model_cpu_offload()
+
+prompt = "A small cactus with a happy face in the Sahara desert."
+image = pipe(prompt).images[0]
+image.save("./catcus.png")
