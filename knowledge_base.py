@@ -5,7 +5,11 @@ from sentence_transformers import SentenceTransformer
 import uuid
 import sys
 import logging
+import os
+from dotenv import load_dotenv
 
+# Load environment variables
+load_dotenv()
 
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -65,18 +69,28 @@ class KnowledgeBase:
 
 # Example standalone usage of the KnowledgeBase class
 async def main():
+    # Load configuration from environment variables
     es_params = {
-        'hosts': ['https://localhost:9200'],
-        'basic_auth': ('elastic', '8w4afIumXEzTXneO_Ydh'),
-        'verify_certs': False
+        'hosts': [os.getenv('ELASTICSEARCH_URL', 'https://localhost:9200')],
+        'basic_auth': (
+            os.getenv('ELASTICSEARCH_USER', 'elastic'),
+            os.getenv('ELASTICSEARCH_PASSWORD')
+        ),
+        'verify_certs': os.getenv('ELASTICSEARCH_VERIFY_CERTS', 'False').lower() == 'true'
     }
     db_params = {
-        'user': 'postgres',
-        'password': 'Geraldine1',
-        'database': 'data_disco',
-        'host': 'localhost',
-        'port': 5432
+        'user': os.getenv('DB_USER', 'postgres'),
+        'password': os.getenv('DB_PASSWORD'),
+        'database': os.getenv('DB_NAME', 'data_disco'),
+        'host': os.getenv('DB_HOST', 'localhost'),
+        'port': int(os.getenv('DB_PORT', '5432'))
     }
+
+    # Validate required credentials
+    if not db_params['password']:
+        raise ValueError("DB_PASSWORD environment variable is required")
+    if not es_params['basic_auth'][1]:
+        raise ValueError("ELASTICSEARCH_PASSWORD environment variable is required")
 
     kb = KnowledgeBase(es_params, db_params)
     await kb.connect_to_db()
