@@ -3,8 +3,11 @@ from typing import List, Any, Optional
 from contextlib import asynccontextmanager
 import logging
 import json
+import os
+from dotenv import load_dotenv
 
-
+# Load environment variables
+load_dotenv()
 
 # Configure logger
 logger = logging.getLogger('database_manager')
@@ -23,8 +26,22 @@ logger.addHandler(file_handler)
 
 
 class DatabaseManager:
-    def __init__(self, dsn: str):
-        self.dsn = "postgresql://postgres:Geraldine1@localhost:5432/data_disco"
+    def __init__(self, dsn: str = None):
+        # Use provided DSN or build from environment variables
+        if dsn:
+            self.dsn = dsn
+        else:
+            db_user = os.getenv('DB_USER', 'postgres')
+            db_password = os.getenv('DB_PASSWORD')
+            db_name = os.getenv('DB_NAME', 'data_disco')
+            db_host = os.getenv('DB_HOST', 'localhost')
+            db_port = os.getenv('DB_PORT', '5432')
+
+            if not db_password:
+                raise ValueError("DB_PASSWORD environment variable is required")
+
+            self.dsn = f"postgresql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
+
         self.pool = None
 
     async def connect(self):
@@ -71,7 +88,7 @@ class DatabaseManager:
 
 
 # Example usage
-# db_manager = DatabaseManager(dsn="postgresql://postgres:Geraldine1@localhost:5432/data_disco")
+# db_manager = DatabaseManager()  # Uses environment variables
 # await db_manager.connect()
 # messages = await db_manager.fetch_messages(channel_id="123456789")
 # await db_manager.store_message("123", "123456789", "987654321", "Hello, World!", "2023-11-06T12:00:00Z")

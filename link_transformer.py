@@ -1,9 +1,16 @@
 import openai
 import httpx
 from bs4 import BeautifulSoup
+import os
+from dotenv import load_dotenv
 
-# Set your OpenAI API key here
-openai.api_key = 'your-api-key'
+# Load environment variables
+load_dotenv()
+
+# Set OpenAI API key from environment variable
+openai.api_key = os.getenv('OPENAI_API_KEY')
+if not openai.api_key:
+    raise ValueError("OPENAI_API_KEY environment variable is required")
 
 class GenericLinkUnfurler:
     def __init__(self):

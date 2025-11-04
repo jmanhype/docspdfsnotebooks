@@ -2,6 +2,8 @@ import interactions
 import re
 import uuid
 import logging
+import os
+from dotenv import load_dotenv
 from interactions import Client, SlashContext, slash_command, slash_option, Task, IntervalTrigger, listen, OptionType
 from link_transformer import GenericLinkUnfurler
 from knowledge_base import KnowledgeBase
@@ -10,24 +12,42 @@ from nlp_handler import NLPHandler
 from db_manager import DatabaseManager
 from search_handler import SearchHandler
 
+# Load environment variables
+load_dotenv()
+
 # Constants and Configurations
-TOKEN = 'MTE3NjA3MTczOTY3MTg1OTIxMA.GcgOpO.W20nTnXwfnZsaUTCAJM4qkt5y_Z5h2s9-rGo78'
+TOKEN = os.getenv('DISCORD_TOKEN')
+if not TOKEN:
+    raise ValueError("DISCORD_TOKEN environment variable is required")
+
 TWITTER_REGEX = re.compile(r'https?://twitter\.com/\w+/status/\d+')
-DSN = "postgresql://postgres:Geraldine1@localhost:5432/data_disco"
+
+# Database connection string
+DSN = os.getenv('DATABASE_URL', 'postgresql://localhost:5432/data_disco')
 
 # Database and Elasticsearch parameters
 db_params = {
-    'user': 'postgres',
-    'password': 'Geraldine1',
-    'database': 'data_disco',
-    'host': 'localhost',
-    'port': 5432
+    'user': os.getenv('DB_USER', 'postgres'),
+    'password': os.getenv('DB_PASSWORD'),
+    'database': os.getenv('DB_NAME', 'data_disco'),
+    'host': os.getenv('DB_HOST', 'localhost'),
+    'port': int(os.getenv('DB_PORT', '5432'))
 }
+
 es_params = {
-    'hosts': ['https://localhost:9200'],
-    'basic_auth': ('elastic', '8w4afIumXEzTXneO_Ydh'),
-    'verify_certs': False
+    'hosts': [os.getenv('ELASTICSEARCH_URL', 'https://localhost:9200')],
+    'basic_auth': (
+        os.getenv('ELASTICSEARCH_USER', 'elastic'),
+        os.getenv('ELASTICSEARCH_PASSWORD')
+    ),
+    'verify_certs': os.getenv('ELASTICSEARCH_VERIFY_CERTS', 'False').lower() == 'true'
 }
+
+# Validate required credentials
+if not db_params['password']:
+    raise ValueError("DB_PASSWORD environment variable is required")
+if not es_params['basic_auth'][1]:
+    raise ValueError("ELASTICSEARCH_PASSWORD environment variable is required")
 
 
 # Initialize bot and slash commands

@@ -1,5 +1,12 @@
 # Advanced Discord Analysis Bot
 
+## ⚠️ Security Notice
+
+**IMPORTANT**: This project requires sensitive credentials (API keys, database passwords, etc.).
+- **NEVER** commit your `.env` file or any file containing real credentials to version control
+- Always use environment variables for sensitive data
+- Review the `.env.example` file for required configuration
+
 ## Overview
 
 This repository contains the implementation of an advanced Discord bot designed to manage and analyze a repository of messages, particularly focusing on link unfurling and contextual understanding. The bot is equipped with AI-driven functionalities to process historical and real-time messages, transform links for enhanced readability, and query a knowledge base for information retrieval.
@@ -30,7 +37,84 @@ The bot operates on a modular architecture comprising several Python scripts, ea
 
 ## Installation
 
-Instructions on setting up the bot, including environment setup, dependency installation, and initial configuration.
+### Prerequisites
+
+- Python 3.8+
+- PostgreSQL database
+- Elasticsearch instance
+- Discord Bot Token
+- OpenAI API Key
+
+### Setup Instructions
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd docspdfsnotebooks
+   ```
+
+2. **Create a virtual environment**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   pip install python-dotenv  # Required for environment variable management
+   ```
+
+4. **Configure environment variables**
+
+   Copy the example environment file and configure it with your credentials:
+   ```bash
+   cp .env.example .env
+   ```
+
+   Edit `.env` and add your credentials:
+   ```bash
+   # Discord Configuration
+   DISCORD_TOKEN=your_discord_bot_token_here
+
+   # Database Configuration
+   DB_USER=postgres
+   DB_PASSWORD=your_database_password_here
+   DB_NAME=data_disco
+   DB_HOST=localhost
+   DB_PORT=5432
+
+   # Elasticsearch Configuration
+   ELASTICSEARCH_URL=https://localhost:9200
+   ELASTICSEARCH_USER=elastic
+   ELASTICSEARCH_PASSWORD=your_elasticsearch_password_here
+   ELASTICSEARCH_VERIFY_CERTS=False
+
+   # OpenAI Configuration
+   OPENAI_API_KEY=your_openai_api_key_here
+   ```
+
+5. **Set up the database**
+
+   Create the PostgreSQL database and required tables:
+   ```bash
+   createdb data_disco
+   # Run your database migration scripts here
+   ```
+
+6. **Run the bot**
+   ```bash
+   python bot.py
+   ```
+
+### Security Best Practices
+
+- **Never commit** the `.env` file to version control
+- Use strong, unique passwords for all services
+- Rotate API keys and passwords regularly
+- Limit database user permissions to only what's necessary
+- Use SSL/TLS for database and Elasticsearch connections in production
+- Review the `.gitignore` file to ensure sensitive files are excluded
 
 ## Usage
 
